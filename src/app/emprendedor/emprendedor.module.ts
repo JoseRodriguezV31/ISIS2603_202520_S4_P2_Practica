@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { EmprendedorListComponent } from './emprendedor-list/emprendedor-list.component';
 import { EmprendedorDetailComponent } from './emprendedor-detail/emprendedor-detail.component';
 
@@ -11,10 +12,12 @@ import { EmprendedorDetailComponent } from './emprendedor-detail/emprendedor-det
     EmprendedorDetailComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   exports: [
-    EmprendedorListComponent
+    EmprendedorListComponent,
+    EmprendedorDetailComponent
   ]
 })
 export class EmprendedorModule { }

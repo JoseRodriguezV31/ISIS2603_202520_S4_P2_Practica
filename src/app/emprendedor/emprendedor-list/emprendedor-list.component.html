@@ -1,24 +1,26 @@
-<div class="container">
-    <h1 class="mt-4">Jovenes Emprendedores Colombianos</h1>
+<div class="container-fluid">
+    <div class="header-section">
+        <h1>Jóvenes Emprendedores Colombianos</h1>
+    </div>
 
-    <table class="table table-bordered mt-4">
-        <thead>
-            <tr style="--bs-table-bg: #0ae98a; --bs-table-color: white;">
-                <th scope="col">Nombre</th>
-                <th scope="col">Foto</th>
-                <th scope="col">Genero</th>
-                <th scope="col">Pregrado</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let emprendedor of emprendedores" (click)="seleccionarEmprendedor(emprendedor)">
-                <td>{{ emprendedor.nombre }}</td>
-                <td><img [src]="emprendedor.foto_url" alt="{{ emprendedor.nombre }}" style="width: 50px; height: auto;"></td>
-                <td>{{ emprendedor.genero }}</td>
-                <td>{{ emprendedor.pregrado }}</td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <app-emprendedor-detail *ngIf="emprendedorSeleccionado" [emprendedor]="emprendedorSeleccionado"></app-emprendedor-detail>
+    <div class="cards-container">
+        <div class="emprendedor-card card" *ngFor="let emprendedor of emprendedores" (click)="seleccionarEmprendedor(emprendedor)">
+            <div class="card-image">
+                <img [src]="emprendedor.foto_url" alt="{{ emprendedor.nombre }}" class="img-fluid">
+            </div>
+            <div class="card-content card-body">
+                <h3 class="card-name card-title">{{ emprendedor.nombre }}</h3>
+                <div class="card-info">
+                    <p class="mb-2"><strong>Género:</strong> {{ emprendedor.genero }}</p>
+                    <p class="mb-2"><strong>Pregrado:</strong> {{ emprendedor.pregrado }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="total-container">
+        <div class="total-badge">
+            <p>Total de emprendedores: {{ emprendedores.length }}</p>
+        </div>
+    </div>
 </div>
